@@ -27,10 +27,10 @@ management:
         include: '*'
 logging:
   level:
-    root: DEBUG
+    root: Info
 ---    
 server:
-  port: 10185
+  port: 10188
 #eureka:
   #client:
     #serviceUrl:
