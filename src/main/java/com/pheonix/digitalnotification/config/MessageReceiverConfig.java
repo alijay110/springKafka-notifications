@@ -44,6 +44,25 @@ public class MessageReceiverConfig {
         return props;
     }
 
+    @Bean
+    public ConsumerFactory<String, String> consumerFactory() {
+
+        return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(),
+                new StringDeserializer());
+    }
+
+    @Bean
+    ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
+
+        ConcurrentKafkaListenerContainerFactory<String, String> factory =
+                new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactory());
+        factory.setMessageConverter(new StringJsonMessageConverter());
+
+        return factory;
+    }
+    
+
 
     
     @Bean
