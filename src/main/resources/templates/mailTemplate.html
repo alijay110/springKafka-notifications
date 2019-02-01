@@ -2,13 +2,12 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head></head>
 <body>
-Dear <span th:text="${title}"></span><b><span th:text="firstName"></span> <span th:text="lastName"></span></b>,
+Dear <span th:text="${title}"></span>&nbsp;<b><span th:text="${firstName}"></span>&nbsp;<span th:text="${lastName}"></span></b>,
 <br><br/>
 <h3>welcome to the application!</h3>
 <span th:text="${message}"></span>
 <br><br/>
 <h4>Warm Regards!</h4>
-<br><br/>
 <h4>Pheonix </h4>
 </body>
 </html>
