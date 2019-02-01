@@ -1,0 +1,19 @@
+package com.pheonix.digitalnotification.model;
+
+import javax.validation.constraints.NotNull;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class EmailCustomerDetails {
+
+	@NotNull
+	private String userId;
+		
+	@NotNull
+	private Name name;
+}
