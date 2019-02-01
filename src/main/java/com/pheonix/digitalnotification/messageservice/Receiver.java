@@ -33,7 +33,7 @@ public class Receiver {
     private DigitalNotificationService digitalNotificationService;
 
     
-    @KafkaListener(topics = "${spring.kafka.topic.dgs-customerRegistration}", containerFactory = "digitalRegistrationCreatedConsumerFactory")
+    @KafkaListener(topics = "${spring.kafka.topic.dgs-customerRegistration}", containerFactory = "digitalAppCreatedKafkaListenerContainerFactory")
     public void receiveAppRegistration(RegistrationEvent dgs) {
 
         log.info("receiveAppRegistration payload='{}'", dgs);
