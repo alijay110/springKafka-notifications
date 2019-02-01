@@ -10,16 +10,14 @@ spring:
   #data:
     #mongodb:
       #uri: mongodb://localhost:27017/notifications
-  #kafka:
+  kafka:
     #bootstrap-servers: praveensmacbook:9092 #check if you are running local it will display in kafka startup logs
-    #bootstrap-servers: localhost:9092 #changed as per my windows configuration
-    #topic:
-      #dgs-applicationRegistration: REG-application-created
-      #dgs-applicationRegistrationUpate: REG-application-Updated
-      #dgs-applicationRegistrationUpate: partitioned
-    #consumer:
-      #group-id: cloudMs
-      #auto-offset-reset: earliest
+    bootstrap-servers: localhost:9092 #changed as per my windows configuration
+    topic:
+      dgs-customerRegistration: customerregistrations
+    consumer:
+      group-id: notificationMs
+      auto-offset-reset: earliest
 management:
   endpoints:
     web:

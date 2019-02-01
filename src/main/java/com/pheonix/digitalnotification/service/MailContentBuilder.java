@@ -7,6 +7,7 @@ import org.thymeleaf.context.Context;
 
 import com.pheonix.digitalnotification.model.EmailCustomerDetails;
 import com.pheonix.digitalnotification.model.EmailInformation;
+import com.pheonix.digitalnotification.model.RegistrationEvent;
 
 @Service
 public class MailContentBuilder {
@@ -27,12 +28,25 @@ public class MailContentBuilder {
         context.setVariable("message", emailInformation.getMessage());
         return templateEngine.process("mailTemplate", context);
     }
+    
+    public String build(RegistrationEvent registrationEvent,String message) {
+        Context context = new Context();
+       
+        context.setVariable("userId", registrationEvent.getUserId());
+      
+        
+        context.setVariable("message", null!=message?message:"thanks for registration. please try to login"
+        		+ " with the credentails by clicking below URL.");
+        context.setVariable("url", "https://www.google.com");
+        return templateEngine.process("mailTemplate", context);
+    }
 
-
+    
+ 
     public String build(String message) {
         Context context = new Context();
         context.setVariable("message", message);
-        return templateEngine.process("mailTemplate", context);
+        return templateEngine.process("customerRegistration", context);
     }
 
 
